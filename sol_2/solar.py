@@ -25,6 +25,7 @@ class SolarSystem:
         self.objects.append(object)
 
     def update_all(self):
+        self.objects.sort(key=lambda item: item.position[0])
         for object in self.objects:
             object.move()
             object.draw()
