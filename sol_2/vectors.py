@@ -43,3 +43,28 @@ class Vector:
             self.y - other.y,
             self.z - other.z,
         )
+
+    # Multiplication and Scala of Vectors
+    def __mul__(self, other):
+        if isinstance(other, Vector):
+            return (
+                self.x * other.x +
+                self.y * other.y +
+                self.z * other.z
+            )
+        elif isinstance(other, (int, float)):
+            return Vector(
+                self.x * other,
+                self.y * other,
+                self.z * other,
+            )
+        else:
+            TypeError("operand hsa to be a Vector, int or float... pls")
+
+    # basic Division of Vectors
+    def __truediv__(self, other):
+        return Vector(
+            self.x / other,
+            self.y / other,
+            self.z / other,
+        )
