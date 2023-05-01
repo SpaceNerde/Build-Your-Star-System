@@ -1,10 +1,12 @@
 # vectors.py
 # Author: Florian Pospiech
 
+import math
+
 # Class to Create and edit Vectors... because I'm lazy.... :D
 class Vector:
     # Define Vector
-    def __init__(self, x=0, y=0, z=0):
+    def __init__(self, x=0.0, y=0.0, z=0.0):
         self.x = x
         self.y = y
         self.z = z
@@ -67,4 +69,17 @@ class Vector:
             self.x / other,
             self.y / other,
             self.z / other,
+        )
+
+    # Get The Magnitude of a Vector... this comment is properly really useless...
+    def get_magnitude(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+
+    # Normalization of Vector
+    def normalize(self):
+        magnitude = self.get_magnitude()
+        return Vector(
+            self.x / magnitude,
+            self.y / magnitude,
+            self.z / magnitude,
         )
